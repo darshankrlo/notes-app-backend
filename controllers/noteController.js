@@ -1,9 +1,10 @@
 const Note = require('../models/Note.js');
 
 const createNote =async (req,res) => {
-    try {    const data = req.body;
-    const note = await Note.create(data);
-    res.status(201).send(note);
+    try {
+        const data = req.body;
+        const note = await Note.create(data);
+        res.status(201).send(note);
     }catch(error){
         res.status(500).send({message: "Error creating note", error: error.message});
     }

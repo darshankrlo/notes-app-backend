@@ -2,9 +2,11 @@ require("dotenv").config();
 const express = require('express');
 const connectDB = require('./config/db.js');
 const noteRoutes = require('./routes/noteRoutes.js');
+const authRoutes = require('./routes/authRoutes.js');
 const app = express();
 
 app.use(express.json());
+app.use('/api/auth', authRoutes);
 app.use('/api/notes', noteRoutes);
 
 connectDB();
